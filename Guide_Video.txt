@@ -5,7 +5,8 @@ Commencer par expliquer chaque classe qui nous permettent de résoudre le sudoku
 
 -Test_Chiffre.java pour tester les chiffres de 1 à 9 jusqu’à en trouver un qui peut rentrer dans la case vide
 
--Reponse.java c’est ici qu’on qu’on va remplir le sudoku à l’aide des classes Vide et Test_Chiffre, il cherche une case vide avec Vide et il la remplit avec Test_Chiffre et il regarde si ça marche sinon on revient en arrière (la logique est commentée dans le fichier)
+-Reponse.java c’est ici qu’on qu’on va remplir le sudoku à l’aide des classes Vide et Test_Chiffre,
+ il cherche une case vide avec Vide et il la remplit avec Test_Chiffre et il regarde si ça marche sinon on revient en arrière (la logique est commentée dans le fichier)
 
 -Lire.java pour remplir le sudoku à partir du fichier txt
 
@@ -15,4 +16,7 @@ Commencer par expliquer chaque classe qui nous permettent de résoudre le sudoku
 
 -Valide.java qui vérifie si le sudoku est valide
 
--Sudoku.java est la classe principale qui sera exécutée et va se servir de toutes les autres classes
+-Sudoku.java est la classe principale qui sera exécutée et va se servir de toutes les autres classes,
+on peut l'executer sans parametre oubien avec doku.txt pour un sudoku normal,
+ doku_impossible.txt pour un sudoku impossible ou 
+ err.txt pour avoir une erreur
