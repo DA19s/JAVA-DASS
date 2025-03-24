@@ -1,0 +1,18 @@
+Pour la video
+Commencer par expliquer chaque classe qui nous permettent de résoudre le sudoku
+
+-Vide.java pour rechercher une case vide à remplir 
+
+-Test_Chiffre.java pour tester les chiffres de 1 à 9 jusqu’à en trouver un qui peut rentrer dans la case vide
+
+-Reponse.java c’est ici qu’on qu’on va remplir le sudoku à l’aide des classes Vide et Test_Chiffre, il cherche une case vide avec Vide et il la remplit avec Test_Chiffre et il regarde si ça marche sinon on revient en arrière (la logique est commentée dans le fichier)
+
+-Lire.java pour remplir le sudoku à partir du fichier txt
+
+-Afficher.java pour afficher le sudoku
+
+-Saisir.java et Saisir1.java pour remplir le sudoku si on a pas de paramètres 
+
+-Valide.java qui vérifie si le sudoku est valide
+
+-Sudoku.java est la classe principale qui sera exécutée et va se servir de toutes les autres classes
