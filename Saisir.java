@@ -1,42 +1,58 @@
 import java.util.Scanner;
 
 public class Saisir {
-    // Fonction pour saisir manuellement la grille en cas d'abscencre de parametre
-     public static int[][] saisirGrilleManuellement() {
+
+    // Fonction pour saisir manuellement la grille en cas d'absence de paramètre
+    public static int[][] saisirGrilleManuellement() {
         Scanner scanner = new Scanner(System.in);
         // On initialise la grille
         int[][] grille = new int[9][9];
-        // On cree une instance de Afficher pour retourner la grille apres chaque saisit
-        Afficher afficher = new Afficher();
 
-        // On parcours la grille en demandant a l'utilisateur de saisir un chiffre a la position actuelle
+        // On parcourt la grille ligne par ligne en demandant a l'utilisateur de remplir
         for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                while (true) {
-                    System.out.print("Entrez le chiffre à la position [" + (i + 1) + "][" + (j + 1) + "] (0 pour une case vide) : ");
-                    String input = scanner.nextLine().trim();
+            while (true) {
+                System.out.print("Entrez la ligne " + (i + 1) + " avec des chiffres séparés par des espaces : ");
+                String input = scanner.nextLine().trim();
+                String[] chiffres = input.split("\\s+");
 
+                // Vérifier que la ligne contient exactement 9 chiffres
+                if (chiffres.length != 9) {
+                    System.out.println("Erreur : Vous devez entrer exactement 9 chiffres !");
+                    continue; // Pour recommencer
+                }
+
+                // On cree une variable qui stocke la validité des valeurs
+                boolean ligneValide = true;
+                for (int j = 0; j < 9; j++) {
                     try {
-                        // On recupere l'input
-                        int valeur = Integer.parseInt(input);
-                        if (valeur >= 0 && valeur <= 9) {
-                            // On verifie si la valeur est valide, si oui on remplit
-                            grille[i][j] = valeur;
-                            afficher.afficherGrille(grille); // Affichage après chaque saisie
+                        int valeur = Integer.parseInt(chiffres[j]);
+                        // On verifie si la valeur est comprise entre 0 et 9
+                        if (valeur < 0 || valeur > 9) {
+                            System.out.println("Erreur : Chaque chiffre doit être entre 0 et 9 !");
+                            // Si la valeur n'est pas dans l'intervalle alors ligneValide prend false et on sort de la boucle
+                            ligneValide = false;
                             break;
-                        } else {
-                            // Si la valeur n'est pas valide on envoit une erreur
-                            System.out.println("Erreur : entrez un chiffre entre 0 et 9 !");
                         }
-                        // On verifie qu'on saisit uniquement des chiffres
+                        grille[i][j] = valeur;
                     } catch (NumberFormatException e) {
-                        System.out.println("Erreur : veuillez entrer uniquement des chiffres !");
+                        // On verifie qu'on ecrit uniquement des chiffres
+                        System.out.println("Erreur : Veuillez entrer uniquement des chiffres !");
+                        // Si la valeur n'est pas un chiffre alors ligneValide prend false et on sort de la boucle
+                        ligneValide = false;
+                        break;
                     }
+                }
+
+                // On verifie si ligneValide est true on break pour sortir du while(true) sinon le while va recommencer
+                if (ligneValide) {
+                    break; // Ligne correctement saisie, passer à la suivante
                 }
             }
         }
-        // Quand tout est bon on renvoit la grille
+
         return grille;
     }
 }
+
+
 
