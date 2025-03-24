@@ -36,20 +36,10 @@ public class Sudoku {
                 return;
             }
         }
-        // On appelle afficherGrille pour la grille initiale
-        System.out.println("Grille initiale :");
+
+        //On utilise la fonction afficher pour afficher la grille initial et sa resolution si possible
         Afficher afficher = new Afficher();
         afficher.afficherGrille(grille);
 
-        // Si reponse renvoit true alors alors on afficher la nouvelle grille
-        Reponse reponse = new Reponse();
-        if (reponse.reponse(grille)) {
-            System.out.println("\nGrille résolue :");
-            afficher.afficherGrille(grille);
-
-            //Sinon on dit qu'on a trouve aucune solution
-        } else {
-            System.out.println("Aucune solution trouvée.");
-        }
     }
 }
